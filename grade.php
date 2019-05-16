@@ -16,7 +16,7 @@ print("Challenge: $chalnum <br>Your name: $name<br>Your answer: $answer<p>\n");
 
 include 'answers.php';
 
-if (! isset($logfile) {
+if (! isset($logfile) ) {
 	print" Error: logfile not set in answers.php":
 	exit;
 }
