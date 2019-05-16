@@ -1,18 +1,14 @@
 <?php
 
-
-
-$verbose = 0;
-
 include 'poss_chals.php';
-if (! isset($logfile) {
-	print" Error: logfile not set in answers.php":
+if (! isset($poss_chals) ) {
+	print" Error: poss_chals not set in poss_chals.php":
 	exit;
 }
-if (! isset($xfile) {
-	print" Error: xfile not set in answers.php":
-	exit;
-}
+
+
+
+$verbose = 1;
 
 
 $header = "<html><head><title>Submit Answers</title>";
