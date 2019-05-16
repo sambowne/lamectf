@@ -80,7 +80,7 @@ $unsolved_suffix ="&nbsp;</font></td>";
 
 # DO NOT CHANGE ANTHING BELOW THIS LINE
 
-$verbose = 0;
+$verbose = 2;
 
 include 'answers.php';
 if (! isset($logfile) ) {
@@ -147,36 +147,38 @@ $scores = array();
 
 for( $i = 0; $i<$numlines; $i++ ) { 
   if ( isset($csv[$i][0]) && isset($csv[$i][1]) && isset($csv[$i][2]) ){
-    $w = $csv[$i][0];
-    $c = $csv[$i][1];
-    $s = $csv[$i][2];
+    if ( len($csv[$i][0]) >0 && len($csv[$i][1]) >0 && len($csv[$i][2]) >0 ){
+      $w = $csv[$i][0];
+      $c = $csv[$i][1];
+      $s = $csv[$i][2];
 
-    if ($verbose>1) print "Processing log line $i: $w $c $s<br>\n";
+      if ($verbose>1) print "Processing log line $i: $w $c $s<br>\n";
 
-    if ( (($skipsam >0) and ($w == "SAM-TESTING")) || ($w == "") ) {
-      if ($verbose>1) print "Skipping SAM<br>\n";
-    } else {
-      if (in_array($w, $winners)) {
-        $key = array_search($w, $winners); 
-        if ($verbose>1) print "Name already in winners list at index $key!<br>\n";
-        $cold = $chals[$key];
-        $sold = $scores[$key];
-        if ($verbose>1) print "Old chals = $cold Old score = $sold<br>\n";
-        $pos = strpos($cold, $c);
-        if ($pos === false) {
-          if ($verbose>1) print "New data; appending it to results<br>\n";
-          $chals[$key] = $chals[$key] . " " . $c;
-          $scores[$key] = $scores[$key] + $s;
-        }
+      if ( (($skipsam >0) and ($w == "SAM-TESTING")) || ($w == "") ) {
+        if ($verbose>1) print "Skipping SAM<br>\n";
+      } else {
+        if (in_array($w, $winners)) {
+          $key = array_search($w, $winners); 
+          if ($verbose>1) print "Name already in winners list at index $key!<br>\n";
+          $cold = $chals[$key];
+          $sold = $scores[$key];
+          if ($verbose>1) print "Old chals = $cold Old score = $sold<br>\n";
+          $pos = strpos($cold, $c);
+          if ($pos === false) {
+            if ($verbose>1) print "New data; appending it to results<br>\n";
+            $chals[$key] = $chals[$key] . " " . $c;
+            $scores[$key] = $scores[$key] + $s;
+          }
+          else {
+            if ($verbose>1) print "Duplicate data; ignoring it<br>\n";
+          }
+        }   
         else {
-          if ($verbose>1) print "Duplicate data; ignoring it<br>\n";
+          if ($verbose>1) print "Name is new!  Adding it to winners list!<br>\n";
+          array_push($winners, $w);
+          array_push($chals, $c);
+          array_push($scores, $s);
         }
-      }   
-      else {
-        if ($verbose>1) print "Name is new!  Adding it to winners list!<br>\n";
-        array_push($winners, $w);
-        array_push($chals, $c);
-        array_push($scores, $s);
       }
     }
   }
