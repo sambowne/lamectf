@@ -5,6 +5,7 @@ if (! isset($poss_chals) ) {
 	print 'Error: poss_chals not set in poss_chals.php<p>';
 	exit;
 }
+$nposs_chals = count($poss_chals);
 
 
 
@@ -32,8 +33,9 @@ print "<tr><td><big><b>Challenge:</b></big></td>";
 print "  <td>";
 print "   <select name='chalnum'>";
 
-for $c in $poss_chals {
-  print "<option value='$c'>$c</option>";
+for( $j=0; $j<$nposs_chals; $j++ ) {
+  $curr_chal = $poss_chals[$j];
+  print "<option value='$curr_chal'>$curr_chal</option>";
 }
 
 print "</select> ";
