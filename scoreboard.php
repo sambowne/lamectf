@@ -150,7 +150,7 @@ $scores = array();
 
 for( $i = 0; $i<$numlines; $i++ ) { 
   if ( isset($csv[$i][0]) && isset($csv[$i][1]) && isset($csv[$i][2]) ){
-    if ( len($csv[$i][0]) >0 && len($csv[$i][1]) >0 && len($csv[$i][2]) >0 ){
+    if ( strlen($csv[$i][0]) >0 && strlen($csv[$i][1]) >0 && strlen($csv[$i][2]) >0 ){
       $w = $csv[$i][0];
       $c = $csv[$i][1];
       $s = $csv[$i][2];
