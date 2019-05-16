@@ -62,10 +62,6 @@ $header .= "</head>";
 
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
 $header .= $title;
-$header .= "<table style='border: $border_width solid $border_color; ";
-$header .= "border-radius: 15px; ' ";
-
-$header .= "cellpadding=0 cellspacing=0 border=0 align='center'> ";
 
 $solved_prefix = "<td class='solved'><font color='$solved_font_color'>&nbsp;";
 
@@ -190,6 +186,12 @@ for( $i = 0; $i<$numlines; $i++ ) {
 $numwinners = count($winners);
 
 if ($verbose>0) print "Found $numwinners winners<p>";
+
+if ($numwinners > 0) {
+  print "<table style='border: $border_width solid $border_color; ";
+  print "border-radius: 15px; ' ";
+  print "cellpadding=0 cellspacing=0 border=0 align='center'> ";
+}
 
 
 
