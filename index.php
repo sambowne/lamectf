@@ -14,7 +14,7 @@ $verbose = 1;
 $header = "<html><head><title>Submit Answers</title>";
 $header .= "</head>";
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
-$header .= <h2>Submit Answers</h2>;
+$header .= "<h2>Submit Answers</h2>";
 $header .= "<table style='border: $border_width solid $border_color; ";
 $header .= "border-radius: 15px; ' ";
 $header .= "cellpadding=0 cellspacing=0 border=0 align='center'> ";
