@@ -1,3 +1,3 @@
 #!/bin/bash
 
-chmod 777 *.csv
+chmod 777 lamectf/*.csv
