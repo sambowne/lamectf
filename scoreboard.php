@@ -83,11 +83,11 @@ $unsolved_suffix ="&nbsp;</font></td>";
 $verbose = 0;
 
 include 'answers.php';
-if (! isset($logfile) {
+if (! isset($logfile) ) {
 	print" Error: logfile not set in answers.php";
 	exit;
 }
-if (! isset($xfile) {
+if (! isset($xfile) ) {
 	print" Error: xfile not set in answers.php";
 	exit;
 }
