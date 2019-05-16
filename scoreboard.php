@@ -251,14 +251,18 @@ for( $i = 0; $i<$numwinners; $i++ ) {
   
   # Add Kahoot Markers
   for( $j=0; $j<$numlinesx; $j++ ) {
-  	$namex = $csvx[$j][0];
-  	$labelx = $csvx[$j][1];
-  	$ptsx = $csvx[$j][2];
+    if ( isset($csvx[$i][0]) && isset($csvx[$i][1]) && isset($csvx[$i][2]) ){
+      if ( strlen($csvx[$i][0]) >0 && strlen($csvx[$i][1]) >0 && strlen($csvx[$i][2]) >0 ){
+        $namex = $csvx[$j][0];
+        $labelx = $csvx[$j][1];
+        $ptsx = $csvx[$j][2];
 
-  	if ($namex === $winners[$i]) {
-        $lclean = str_replace("_", ":", $labelx);
-  		$lclean .= strval($ptsx);
-      $chal_list .= "$solved_prefix$lclean$solved_suffix";
+        if ($namex === $winners[$i]) {
+          $lclean = str_replace("_", ":", $labelx);
+  		  $lclean .= strval($ptsx);
+          $chal_list .= "$solved_prefix$lclean$solved_suffix";
+        }
+      }
   	}  		
   }
 
