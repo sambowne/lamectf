@@ -19,7 +19,7 @@ $header .= "<table style='border: $border_width solid $border_color; ";
 $header .= "border-radius: 15px; ' ";
 $header .= "cellpadding=0 cellspacing=0 border=0 align='center'> ";
 
-print $header';
+print $header;
 print "<blockquote>";
 print "<table cellpadding=10 border=10 width='800px'><tr><td align='center'>";
 print "<big><b>Enter flags below</b></big><p>";
@@ -33,7 +33,7 @@ print "  <td>";
 print "   <select name='chalnum'>";
 
 for $c in $poss_chals {
-  print "<option value="$c">$c</option>";
+  print "<option value='$c'>$c</option>";
 }
 
 print "</select> ";
@@ -43,12 +43,12 @@ print "</td></tr>";
 
 
 print "<tr><td><big><b>Name:</b></big></td>";
-print "  <td><textarea name="name" rows="1" cols="25"></textarea></td></tr>";
+print "  <td><textarea name='name' rows='1' cols='25'></textarea></td></tr>";
 print "<tr><td><big><b>Flag:</b></big></td>";
-print "  <td><textarea name="answer" rows="1" cols="25"></textarea>  ";
+print "  <td><textarea name='answer' rows='1' cols='25'></textarea>  ";
 print "  </td></tr>";
-print "<tr><td colspan=2 align="center"><big><b>";
-print "<input type="submit" name="canvas" value="Submit">";
+print "<tr><td colspan=2 align='center'><big><b>";
+print "<input type='submit' name='canvas' value='Submit'>";
 print "</td></tr>";
 print "</table>";
 
