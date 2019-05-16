@@ -189,6 +189,7 @@ for( $i = 0; $i<$numlines; $i++ ) {
 
 $numwinners = count($winners);
 
+if ($verbose>0) print "Found $numwinners winners<p>";
 
 
 
