@@ -11,6 +11,8 @@ $nposs_chals = count($poss_chals);
 
 $verbose = 1;
 
+$border_width = "5";
+$border_color = "blue";
 
 $header = "<html><head><title>Submit Answers</title>";
 $header .= "</head>";
