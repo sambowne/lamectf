@@ -1,5 +1,7 @@
 <?php
 
+$verbose = 0;
+
 # THIS SECTION CAN BE CUSTOMIZED FOR EACH CTF
 
 $title = "<h1 align='center'>Splunk Threat Hunting CTF</h1>\n";
@@ -76,7 +78,6 @@ $unsolved_suffix ="&nbsp;</font></td>";
 
 # DO NOT CHANGE ANTHING BELOW THIS LINE
 
-$verbose = 2;
 
 include 'answers.php';
 if (! isset($logfile) ) {
@@ -97,7 +98,7 @@ include 'poss_chals.php';
 $nposs_chals = count($poss_chals);
 
 if ($verbose>1) {
-	print "<p>Nposs_chals: $poss_chals:<br>";
+	print "<p>Nposs_chals: $nposs_chals:<br>";
 	print_r($poss_chals);
 	print "<p>";
 }
