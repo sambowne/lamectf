@@ -134,7 +134,10 @@ if ($verbose > 1) print "</pre>\n";
   
 if ($verbose > 1) {
   for( $i = 0; $i<$numlines; $i++ ) { 
-    print "<b>Log line $i:</b> ". $csv[$i][0] . " " . $csv[$i][1] . " " . $csv[$i][2] . "<br>\n";
+    if ( isset($csv[$i][0]) && isset($csv[$i][1]) && isset($csv[$i][2]) ){
+  
+      print "<b>Log line $i:</b> ". $csv[$i][0] . " " . $csv[$i][1] . " " . $csv[$i][2] . "<br>\n";
+    }
   }
 }
 
