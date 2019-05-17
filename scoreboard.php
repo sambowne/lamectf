@@ -88,13 +88,16 @@ if (! isset($xfile) ) {
 	print" Error: xfile not set in answers.php";
 	exit;
 }
+if (! isset($poss_chals) ) {
+	print" Error: poss_chals not set in answers.php";
+	exit;
+}
 
 $remove = '_';					    # Challenge ID delimiter
 $break_mark = "BREAK";		# In poss_chals;
 $max_row_length = 20;		# includes break marks
 
 
-include 'poss_chals.php';
 $nposs_chals = count($poss_chals);
 
 if ($verbose>1) {
@@ -104,9 +107,9 @@ if ($verbose>1) {
 }
 
 
-# Check skipsam parameter
-if (! isset($_GET["skipsam"])) { $skipsam = 1; }
-else { $skipsam = 0; }
+# Check showtest parameter
+if (isset($_GET["showtest"])) { $showtest = 1; }
+else { $showtest = 0; }
 
 
 
@@ -154,8 +157,8 @@ for( $i = 0; $i<$numlines; $i++ ) {
 
       if ($verbose>1) print "Processing log line $i: $w $c $s<br>\n";
 
-      if ( (($skipsam >0) and ($w == "SAM-TESTING")) || ($w == "") ) {
-        if ($verbose>1) print "Skipping SAM<br>\n";
+      if ( (($showtest ==0) and ($w == "TESTING")) || ($w == "") ) {
+        if ($verbose>1) print "Skipping TESTING<br>\n";
       } else {
         if (in_array($w, $winners)) {
           $key = array_search($w, $winners); 
@@ -325,7 +328,7 @@ print "</body></html>\n";
 # v1.02 requires auth parameter
 # v1.03 adds column headers
 # v1.04 removes "EH", added authorization
-# v1.05 removed auth token, moved to content server, implemented skipsam as a parameter, 
+# v1.05 removed auth token, moved to content server, implemented showtest as a parameter, 
 #       implmented _ terminators
 # v1.06 added extra credit xfile
 # v1.07 removes "A" from chalnum
