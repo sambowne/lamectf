@@ -1,6 +1,6 @@
 <?php
 
-$verbose = 2;
+$verbose = 2	;
 
 # THIS SECTION CAN BE CUSTOMIZED FOR EACH CTF
 
@@ -229,7 +229,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	}
     
     $cclean = str_replace($remove, "", $curr_chal);
-    if ($verbose>1) { print "Cell: $i $j $boxcolor<br>"; }
+    if ($verbose>1) { print "Cell: $i $j <br>"; }
     
 	# ROW TOO LONG
     if (($chal_count+1) % $max_row_length == 0) { 
