@@ -1,6 +1,6 @@
 <?php
 
-$verbose = 0;
+$verbose = 2;
 
 # THIS SECTION CAN BE CUSTOMIZED FOR EACH CTF
 
