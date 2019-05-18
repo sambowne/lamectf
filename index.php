@@ -1,11 +1,16 @@
 <?php
 
-include 'poss_chals.php';
+include 'answers.php';
 if (! isset($poss_chals) ) {
-	print 'Error: poss_chals not set in poss_chals.php<p>';
+	print '<h3>Error: poss_chals not set in answers.php</h3>';
 	exit;
 }
 $nposs_chals = count($poss_chals);
+
+if (! isset($description) ) {
+	print '<h3>Error: description not set in answers.php</h3>';
+	exit;
+}
 
 
 
@@ -17,6 +22,7 @@ $border_color = "blue";
 $header = "<html><head><title>Submit Answers</title>";
 $header .= "</head>";
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
+$header .= $description;
 $header .= "<h2>Submit Answers</h2>";
 $header .= "<table style='border: $border_width solid $border_color; ";
 $header .= "border-radius: 15px; ' ";
