@@ -38,7 +38,7 @@ $header = "<html><head><title>Scoreboard</title>";
 
 $header .= "<style>";
 $header .= "th, td { border-bottom: 1px solid $bottom_border_color;";
-$header .= " margin: 0 10 0px; padding: 0 10 0px;}";
+$header .= " margin: 0 10 0px; padding: 0 10 0px; vertical-align: middle; }";
 
 $header .= "td.solved { background-clip: padding-box; padding: 4px; ";
 $header .= "border-radius: 13px; background-color: $solved_color; ";
