@@ -8,7 +8,7 @@ $version="2.02";
 
 # $border_color = "#efdcff";
 # $border_color = "#D783FF";
-$border_color = "lightblue";
+$border_color = "skyblue";
 $border_width = "10px";
 
 $bottom_border_color = "#dfccff";
@@ -16,7 +16,7 @@ $bottom_border_color = "#dfccff";
 #$solved_color = "#00ff00";
 $solved_color = "#ffffff";
 # $solved_color_border = "#D783FF";
-$solved_color_border = "lightgreen";
+$solved_color_border = "springgreen";
 
 $unsolved_color = "#ffffff";
 $unsolved_color_border = "#666666";
