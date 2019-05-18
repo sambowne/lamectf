@@ -23,6 +23,9 @@ if (! isset($description) ) {
 	print '<h3>Error: description not set in answers.php</h3>';
 	exit;
 }
+
+$remove = '_';				# Challenge ID delimiter
+
 ?>
 
 
@@ -48,8 +51,8 @@ print $header;
    <?php 
    for( $j=0; $j<$nposs_chals; $j++ ) {
      $curr_chal = $poss_chals[$j];
-     
-     $mark = substr(strtolower($curr_chal),0,5);
+     $cclean = str_replace($remove, "", $curr_chal);
+     $mark = substr(strtolower($cclean),0,5);
      if ( ($mark != "break") && ($mark != "label") ) {
         print "<option value='$curr_chal'>$curr_chal</option>";
      }
