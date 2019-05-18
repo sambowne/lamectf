@@ -2,15 +2,9 @@
 
 $verbose = 0;
 
-# THIS SECTION CAN BE CUSTOMIZED FOR EACH CTF
-
-$title = "<h1 align='center'>Splunk Threat Hunting CTF</h1>\n";
-$title .= "<h2 align='center'><a href='https://www.meetup.com/pacifichackers/?_xtd=gqFyqTE5OTAxMDkyNaFwp2FuZHJvaWQ&from=ref'>Pacific Hackers Meetup</a></h2>\n";
-$title .= "<h3 align='center'>Sunnyvale, CA &middot; May 11, 2019</h3>\n";
-
 # THIS SECTION CHANGES THE LOOK OF THE SCOREBOARD
 
-$version="2.01";
+$version="2.02";
 
 #$border_color = "#efdcff";
 $border_color = "#D783FF";
@@ -79,6 +73,7 @@ $unsolved_suffix ="&nbsp;</font></td>";
 # DO NOT CHANGE ANTHING BELOW THIS LINE
 
 
+# IMPORT ANSWERS FILE
 include 'answers.php';
 if (! isset($logfile) ) {
 	print" Error: logfile not set in answers.php";
@@ -90,6 +85,10 @@ if (! isset($xfile) ) {
 }
 if (! isset($poss_chals) ) {
 	print" Error: poss_chals not set in answers.php";
+	exit;
+}
+if (! isset($description) ) {
+	print" Error: description not set in answers.php";
 	exit;
 }
 
@@ -116,6 +115,7 @@ else { $showtest = 0; }
 # OUTPUT HEADER
 
 print $header;
+print $description;
 
 
 # READ SCORE LOGS  
@@ -341,6 +341,6 @@ print "</body></html>\n";
 # v 1.14 string to remove placed in $remove
 # v 2.00 moved formatting to strings at top, added rank #
 # v 2.01 reads xfile and logfile from answers.php
-
+# v 2.02 reads description from answers.php
 
 ?>
