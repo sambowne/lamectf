@@ -243,6 +243,8 @@ for( $i = 0; $i<$numwinners; $i++ ) {
    		$chal_count = -1;
    		}
 
+	if ($verbose>1) { print "<p>Trying to add $cclean to chal_list <p>"; }
+
 	# BREAK MARK FOUND
     if (strtolower($curr_chal) == $break_mark) { 		# Break mark
     	$chal_list .= "</tr><tr>"; 
