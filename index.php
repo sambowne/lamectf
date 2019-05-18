@@ -49,7 +49,7 @@ print $header;
    for( $j=0; $j<$nposs_chals; $j++ ) {
      $curr_chal = $poss_chals[$j];
      
-     $mark = substr(strtolower($curr_chal),5);
+     $mark = substr(strtolower($curr_chal),0,5);
      if ( ($mark != "break") && ($mark != "label") ) {
         print "<option value='$curr_chal'>$curr_chal</option>";
      }
