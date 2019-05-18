@@ -54,7 +54,7 @@ print $header;
      $cclean = str_replace($remove, "", $curr_chal);
      $mark = substr(strtolower($cclean),0,5);
      if ( ($mark != "break") && ($mark != "label") ) {
-        print "<option value='$cclean'>$cclean</option>";
+        print "<option value='$curr_chal'>$cclean</option>";
      }
    } ?>
 </select> 
