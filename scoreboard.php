@@ -250,6 +250,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	}
     else {		# Add non-break challenge numbers to list
 	    $chal_list .= "$cell_prefix$cclean$cell_suffix";
+    	if ($verbose>1) { print "<p>Adding to chal_list: $cclean  <p>"; }
     	}
     }
     
