@@ -61,13 +61,13 @@ $header .= "</head>";
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
 
 $solved_prefix = "<td class='solved'><font color='$solved_font_color'>&nbsp;";
-$solved_suffix ="&nbsp;</font></td>";
+$solved_suffix = "&nbsp;</font></td>";
 
 $unsolved_prefix = "<td  class='unsolved'><font color='$unsolved_font_color'>&nbsp;";
 $unsolved_suffix ="&nbsp;</font></td>";
 
 $label_prefix = "<td><b>&nbsp;";
-$label_suffix ="&nbsp;</b></td>";
+$label_suffix = "&nbsp;</b></td>";
 
 
 
@@ -246,6 +246,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	}
     else {		# Add non-break challenge numbers to list
 	    $chal_list .= "$cell_prefix$cclean$cell_suffix";
+    	}
     }
     
 
