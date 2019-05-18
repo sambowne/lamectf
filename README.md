@@ -27,7 +27,9 @@ You need Apache and PHP.
 On Ubuntu 18.04, these commands work:
 
 <code>
-sudo apt update<br>
+sudo apt update</code>
+<br>
+<code>
 sudo apt install apache2 php libapache2-mod-php -y
 </code>
 
