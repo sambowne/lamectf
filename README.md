@@ -1,6 +1,10 @@
 # lamectf
 A very simple CTF scoring engine
 
+<p>
+<a href="https://samlols.samsclass.info/lamectf/"><b>Live Demo</b></a>
+
+
 <h1>Using this Scoring Engine</h1>
 
 <h2>What You Need</h2>
@@ -39,7 +43,7 @@ Open your server's IP address in a Web browser.
 You should see the default Apache page,
 as shown below.
 
-<p><img src="setup1.png"><p>
+<p><img src="setup1.png" border="1"><p>
 
 <h2>Testing PHP</h2>
 
@@ -54,7 +58,7 @@ in a Web browser.
 You should see a PHP info page,
 as shown below.
 
-<p><img src="setup2.png"><p>
+<p><img src="setup2.png" border="1"><p>
 
 
 
