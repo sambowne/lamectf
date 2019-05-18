@@ -38,7 +38,7 @@ print $header;
 print "<blockquote>";
 print "<table style='border: $border_width solid $border_color; ";
 print "border-radius: 15px; '"; 
-print "cellpadding=10 border=10 width='800px'><tr><td align='center'>";
+print "cellpadding=10 width='800px'><tr><td align='center'>";
 print "<big><b>Enter flags below</b></big><p>";
 
 print "<form action='grade.php' method='post'>";
