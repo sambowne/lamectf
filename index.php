@@ -5,8 +5,6 @@
 <body bgcolor="#ffffff" style="font-family:Arial">
 <h1 align="center">Demo CTF</h1>
 
-<h2 align="center"><a href="grade.php">Submit Flags</a></h2>
-
 <h2 align="center"><a href="scoreboard.php">Scoreboard</a></h2>
 
 
@@ -31,7 +29,7 @@ $verbose = 1;
 $border_width = "5";
 $border_color = "blue";
 
-$header .= $description;
+$header  = $description;
 $header .= "<h2>Submit Answers</h2>";
 $header .= "<table style='border: $border_width solid $border_color; ";
 $header .= "border-radius: 15px; ' ";
@@ -102,13 +100,14 @@ print "</blockquote>";
 
 <h2>Special Scoreboards</h2>
 
-<h2 align="center"><a href="scoreboard.php?refresh=1">Scoreboard that Refreshes</a></h2>
-<h2 align="center"><a href="scoreboard.php?showtest=1">Scoreboard Including "TESTING"</a></h2>
+<b><a href="scoreboard.php?refresh=1">Scoreboard that Refreshes</a><br>
+<a href="scoreboard.php?showtest=1">Scoreboard Including "TESTING"</a>
+<p>
 
 
 <hr>
 
-Posted 5-17-19<br>
+Posted 5-18-19<br>
 
 </body>
 </html>
