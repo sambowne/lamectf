@@ -1,6 +1,6 @@
 <?php
 
-$verbose = 2;
+$verbose = 0;
 
 # THIS SECTION CHANGES THE LOOK OF THE SCOREBOARD
 
@@ -219,7 +219,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     
     if (substr(strtolower($curr_chal),0,5) == $label_mark) {
     	$cell_prefix = $label_prefix;
-    	$cclean = substr($curr_chal,5);
+    	$cclean = substr($curr_chal,6);
     	$cell_suffix = $label_suffix;
     	if ($verbose>1) { 
     		print "<p>Label found: $cell_prefix $cclean $cell_suffix <p>"; 
