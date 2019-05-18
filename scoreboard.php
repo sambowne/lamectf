@@ -222,10 +222,9 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	$cclean = substr($curr_chal,6);
     	$cell_suffix = $label_suffix;
     	if ($verbose>1) { 
-    		print "<p>Label found: $cell_prefix $cclean $cell_suffix <p>"; 
+    		print "<p>Label found: $cclean  <p>"; 
 	    	}
-    } 
-    else {   	
+    } else {   	
 		$pos = strpos($ci, $curr_chal);
       	if ($pos === false) { 						# UNSOLVED
     	   $cell_prefix = $unsolved_prefix;
@@ -237,13 +236,14 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	}
     
 	    $cclean = str_replace($remove, "", $curr_chal);
-    	if ($verbose>1) { print "Cell: $i $j <br>"; }
+    }
+   	if ($verbose>1) { print "Cell: $i $j <br>"; }
     
-		# ROW TOO LONG
-    	if (($chal_count+1) % $max_row_length == 0) { 
-    		$chal_list .= "</tr><tr>"; 
-    		$chal_count = -1;
-    		}
+	# ROW TOO LONG
+   	if (($chal_count+1) % $max_row_length == 0) { 
+   		$chal_list .= "</tr><tr>"; 
+   		$chal_count = -1;
+   		}
 
 	# BREAK MARK FOUND
     if (strtolower($curr_chal) == $break_mark) { 		# Break mark
