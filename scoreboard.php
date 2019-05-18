@@ -221,20 +221,20 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	$cell_prefix = $label_prefix;
     	$cclean = substr($curr_chal,6);
     	$cell_suffix = $label_suffix;
-    	if ($verbose>1) { 
-    		print "<p>Label found: $cclean  <p>"; 
-	    	}
+    	if ($verbose>1) { print "<p>Label found: $cclean  <p>"; }
     } else {   	# Not a label
 		$pos = strpos($ci, $curr_chal);
       	if ($pos === false) { 						# UNSOLVED
-    	   $cell_prefix = $unsolved_prefix;
+    		$cell_prefix = $unsolved_prefix;
        		$cell_suffix = $unsolved_suffix;
        		$cclean = str_replace($remove, "", $curr_chal);
+    		if ($verbose>1) { print "<p>Unsolved challenge: $cclean  <p>"; }
     	} 
   		else { 										# SOLVED
     		$cell_prefix = $solved_prefix;
     		$cell_suffix = $solved_suffix;
        		$cclean = str_replace($remove, "", $curr_chal);
+    		if ($verbose>1) { print "<p>Solved challenge: $cclean  <p>"; }
     	}
     
 	# ROW TOO LONG
