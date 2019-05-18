@@ -2,7 +2,7 @@
 <head>
 <title>Demo CTF</title>
 <style>
-table { padding: 10px; border-radius: 15px; background-color: "#ffffff"; border: 10px solid "#0066ff"; }
+table { padding: 10px; border-radius: 15px; background-color: #ffffff; border: 10px solid #0066ff; }
 </style>
 
 </head>
