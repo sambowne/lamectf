@@ -8,7 +8,6 @@ table { padding: 10px; border-radius: 15px; background-color: #ffffff; border: 1
 </head>
 <body bgcolor="#ffffff" style="font-family:Arial">
 
-<table><tr><td>x</td></tr></table>
 
 <!-- Import answers.php -->
 <?php
@@ -41,7 +40,7 @@ print $header;
 <form action='grade.php' method='post'>
 <blockquote>
 
-<table><tr><td><h3 align='center'>Enter flags below</h3></td></tr></table>
+<table align='center'><tr><td><h3 align='center'>Enter flags below</h3></td></tr>
 
 <tr><td><big><b>Challenge:</b></big></td>
   <td>
