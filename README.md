@@ -61,12 +61,12 @@ as shown below.
 
 In a Terminal, execute these commands:
 
-<blockquote><b><nig><code><pre>
+<code>
 sudo apt install git -y
 cd /var/www/html
 sudo git clone https://github.com/sambowne/lamectf.git
 sudo bash lamectf/setup.sh
-</pre></code></big></b></blockquote>
+</code>
 
 
 Open your server's IP address 
