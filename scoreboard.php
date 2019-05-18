@@ -52,6 +52,9 @@ $header .= "border: 1px solid $unsolved_color_border; ";
 $header .= "text-align: center; font-size: 0.7em; ";
 $header .= "font-weight: bold; }";
 
+$header .= "td.label { border: 0px solid $unsolved_color_border; ";
+
+
 $header .= "</style>";
 
 $header .= $refresh;
@@ -63,10 +66,10 @@ $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
 $solved_prefix = "<td class='solved'><font color='$solved_font_color'>&nbsp;";
 $solved_suffix = "&nbsp;</font></td>";
 
-$unsolved_prefix = "<td  class='unsolved'><font color='$unsolved_font_color'>&nbsp;";
+$unsolved_prefix = "<td class='unsolved'><font color='$unsolved_font_color'>&nbsp;";
 $unsolved_suffix ="&nbsp;</font></td>";
 
-$label_prefix = "<td><b>&nbsp;";
+$label_prefix = "<td class='label'><b>&nbsp;";
 $label_suffix = "&nbsp;</b></td>";
 
 
