@@ -3,9 +3,6 @@
 <title>Demo CTF</title>
 </head>
 <body bgcolor="#ffffff" style="font-family:Arial">
-<h1 align="center">Demo CTF</h1>
-
-<h2 align="center"><a href="scoreboard.php">Scoreboard</a></h2>
 
 
 <?php
@@ -30,14 +27,18 @@ $border_width = "5";
 $border_color = "blue";
 
 $header  = $description;
-$header .= "<h2>Submit Answers</h2>";
-$header .= "<table style='border: $border_width solid $border_color; ";
-$header .= "border-radius: 15px; ' ";
-$header .= "cellpadding=0 cellspacing=0 border=0 align='center'> ";
+
+$header .= "<h3 align='center'><a href='scoreboard.php'>Scoreboard</a></h3>";
+
+# $header .= "<table style='border: $border_width solid $border_color; ";
+# $header .= "border-radius: 15px; ' ";
+# $header .= "cellpadding=0 cellspacing=0 align='center'> ";
 
 print $header;
 print "<blockquote>";
-print "<table cellpadding=10 border=10 width='800px'><tr><td align='center'>";
+print "<table style='border: $border_width solid $border_color; ";
+print "border-radius: 15px; '"; 
+print "cellpadding=10 border=10 width='800px'><tr><td align='center'>";
 print "<big><b>Enter flags below</b></big><p>";
 
 print "<form action='grade.php' method='post'>";
