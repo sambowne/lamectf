@@ -1,6 +1,10 @@
 <html>
 <head>
 <title>Demo CTF</title>
+<style>
+table { padding: 10px; border-radius: 15px; background-color: "#ffffff"; border: 10px solid blue; }
+</style>
+
 </head>
 <body bgcolor="#ffffff" style="font-family:Arial">
 
@@ -21,10 +25,7 @@ if (! isset($description) ) {
 
 
 
-$verbose = 1;
-
-$border_width = "5";
-$border_color = "blue";
+# $verbose = 1;
 
 $header  = $description;
 
@@ -35,10 +36,13 @@ $header .= "<h3 align='center'><a href='scoreboard.php'>Scoreboard</a></h3>";
 # $header .= "cellpadding=0 cellspacing=0 align='center'> ";
 
 print $header;
+
+$border_width = "5";
+$border_color = "blue";
+
+
 print "<blockquote>";
-print "<table style='border: $border_width solid $border_color; ";
-print "border-radius: 15px; '"; 
-print "cellpadding=10 width='800px'><tr><td align='center'>";
+print "<table><tr><td align='center'>";
 print "<big><b>Enter flags below</b></big><p>";
 
 print "<form action='grade.php' method='post'>";
