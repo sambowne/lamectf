@@ -44,7 +44,7 @@ as shown below.
 Execute this comman to make a simple PHP
 test file:
 <blockquote><b><nig><code><pre>
-echo "<?php phpinfo() ?>" | sudo tee /var/www/html/test.php
+echo "^lt;?php phpinfo() ?&gt;" | sudo tee /var/www/html/test.php
 </pre></code></big></b></blockquote>
 
 Open your server's IP address followed by "<b>/test.php</b>"
