@@ -57,7 +57,6 @@ $header .= $refresh;
 $header .= "</head>";
 
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
-$header .= $title;
 
 $solved_prefix = "<td class='solved'><font color='$solved_font_color'>&nbsp;";
 
