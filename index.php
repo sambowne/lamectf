@@ -1,3 +1,15 @@
+<html>
+<head>
+<title>Demo CTF</title>
+</head>
+<body bgcolor="#ffffff" style="font-family:Arial">
+<h1 align="center">Demo CTF</h1>
+
+<h2 align="center"><a href="grade.php">Submit Flags</a></h2>
+
+<h2 align="center"><a href="scoreboard.php">Scoreboard</a></h2>
+
+
 <?php
 
 include 'answers.php';
@@ -19,9 +31,6 @@ $verbose = 1;
 $border_width = "5";
 $border_color = "blue";
 
-$header = "<html><head><title>Submit Answers</title>";
-$header .= "</head>";
-$header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
 $header .= $description;
 $header .= "<h2>Submit Answers</h2>";
 $header .= "<table style='border: $border_width solid $border_color; ";
@@ -69,7 +78,40 @@ print "</td></tr></table>";
 print "</blockquote>";
 
 
-
-
-
 ?>
+
+
+<blockquote>
+<table cellpadding=10 border=5><tr><td>
+<h2>Challenges</h2>
+
+<b><big>1. What color is the sky?</big></b>
+<p>
+<b><big>2. When walking along a road, which directions can you go?  Choose from these options. (There are two possible correct answers.)
+<ul>
+<li>Forward
+<li>Back
+<li>Up
+<li>Down
+</ul>
+</big></b>
+<p>
+<b><big>3. Pick a number between 1 and 10.</big></b>
+<p>
+</td></tr></table></blockquote>
+
+<h2>Special Scoreboards</h2>
+
+<h2 align="center"><a href="scoreboard.php?refresh=1">Scoreboard that Refreshes</a></h2>
+<h2 align="center"><a href="scoreboard.php?showtest=1">Scoreboard Including "TESTING"</a></h2>
+
+
+<hr>
+
+Posted 5-17-19<br>
+
+</body>
+</html>
+
+
+
