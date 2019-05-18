@@ -1,6 +1,6 @@
 <?php
 
-$verbose = 2;
+$verbose = 0;
 
 # THIS SECTION CHANGES THE LOOK OF THE SCOREBOARD
 
