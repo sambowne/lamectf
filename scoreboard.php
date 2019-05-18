@@ -16,7 +16,7 @@ $bottom_border_color = "#dfccff";
 #$solved_color = "#00ff00";
 $solved_color = "#ffffff";
 # $solved_color_border = "#D783FF";
-$solved_color_border = "green";
+$solved_color_border = "SpringGreen";
 
 $unsolved_color = "#ffffff";
 $unsolved_color_border = "#666666";
