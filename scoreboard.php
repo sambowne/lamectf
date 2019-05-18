@@ -61,13 +61,13 @@ $header .= "</head>";
 $header .= "<body bgcolor='#ffffff'  style='font-family:Arial'>";
 
 $solved_prefix = "<td class='solved'><font color='$solved_font_color'>&nbsp;";
-
 $solved_suffix ="&nbsp;</font></td>";
 
-# $unsolved_prefix = "<td bgcolor='$unsolved_color' align='center'><font color='$unsolved_font_color'><b>&nbsp;";
 $unsolved_prefix = "<td  class='unsolved'><font color='$unsolved_font_color'>&nbsp;";
-
 $unsolved_suffix ="&nbsp;</font></td>";
+
+$label_prefix = "<td><b>&nbsp;";
+$label_suffix ="&nbsp;</b></td>";
 
 
 
@@ -94,7 +94,8 @@ if (! isset($description) ) {
 }
 
 $remove = '_';				# Challenge ID delimiter
-$break_mark = "BREAK";		# In answers.php;
+$break_mark = "break";		# In answers.php;
+$label_mark = "label";		# In answers.php;
 $max_row_length = 20;		# includes break marks
 
 
@@ -213,33 +214,33 @@ for( $i = 0; $i<$numwinners; $i++ ) {
   	$curr_chal = $poss_chals[$j];
     if ($verbose>1) { print "<p>i, j, ci: $i $j $ci<p>"; }
     
-   	$pos = strpos($ci, $curr_chal);
-    if ($pos === false) { 						# UNSOLVED
-    	$cell_prefix = $unsolved_prefix;
-    	$cell_suffix = $unsolved_suffix;
-    	
-    	# $boxcolor = $unsolved_color; 
-    	# $fontcolor = $unsolved_font_color; 
+    if (substr(strtolower($curr_chal),0,5) == $label_mark) {
+    	$cell_prefix = $label_prefix;
+    	$cclean = substr($curr_chal,5)
+    	$cell_suffix = $label_suffix;
+    } 
+    else {   	
+		$pos = strpos($ci, $curr_chal);
+      	if ($pos === false) { 						# UNSOLVED
+    	   $cell_prefix = $unsolved_prefix;
+       	$cell_suffix = $unsolved_suffix;
     	} 
-    else { 										# SOLVED
-    	$cell_prefix = $solved_prefix;
-    	$cell_suffix = $solved_suffix;
-    	
-    	# $boxcolor = $solved_color; 
-    	# $fontcolor = $solved_font_color; 
+  		else { 										# SOLVED
+    		$cell_prefix = $solved_prefix;
+    		$cell_suffix = $solved_suffix;
     	}
     
-    $cclean = str_replace($remove, "", $curr_chal);
-    if ($verbose>1) { print "Cell: $i $j <br>"; }
+	    $cclean = str_replace($remove, "", $curr_chal);
+    	if ($verbose>1) { print "Cell: $i $j <br>"; }
     
-	# ROW TOO LONG
-    if (($chal_count+1) % $max_row_length == 0) { 
-    	$chal_list .= "</tr><tr>"; 
-    	$chal_count = -1;
-    	}
+		# ROW TOO LONG
+    	if (($chal_count+1) % $max_row_length == 0) { 
+    		$chal_list .= "</tr><tr>"; 
+    		$chal_count = -1;
+    		}
 
 	# BREAK MARK FOUND
-    if ($curr_chal == $break_mark) { 
+    if (strtolower($curr_chal) == $break_mark) { 		# Break mark
     	$chal_list .= "</tr><tr>"; 
     	$chal_count = -1;
     	}
