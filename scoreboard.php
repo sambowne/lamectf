@@ -1,6 +1,6 @@
 <?php
 
-$verbose = 0;
+$verbose = 2;
 
 # THIS SECTION CHANGES THE LOOK OF THE SCOREBOARD
 
@@ -212,12 +212,18 @@ for( $i = 0; $i<$numwinners; $i++ ) {
   $chal_count = 0;
   for( $j=0; $j<$nposs_chals; $j++ ) {
   	$curr_chal = $poss_chals[$j];
-    if ($verbose>1) { print "<p>i, j, ci: $i $j $ci<p>"; }
+    if ($verbose>1) { 
+    	print "<p>i, j, ci: $i $j $ci<p>"; 
+    	print "<p>curr_chal: $curr_chal<p>";     	
+    	}
     
     if (substr(strtolower($curr_chal),0,5) == $label_mark) {
     	$cell_prefix = $label_prefix;
     	$cclean = substr($curr_chal,5);
     	$cell_suffix = $label_suffix;
+    	if ($verbose>1) { 
+    		print "<p>Label found: $cell_prefix $cclean $cell_suffix <p>"; 
+	    	}
     } 
     else {   	
 		$pos = strpos($ci, $curr_chal);
