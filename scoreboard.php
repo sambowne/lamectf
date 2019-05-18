@@ -247,6 +247,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     if (strtolower($curr_chal) == $break_mark) { 		# Break mark
     	$chal_list .= "</tr><tr>"; 
     	$chal_count = -1;
+    	if ($verbose>1) { print "<p>Break mark found  <p>"; }
     	}
     else {		# Add non-break challenge numbers to list
 	    $chal_list .= "$cell_prefix$cclean$cell_suffix";
