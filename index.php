@@ -8,7 +8,7 @@ table { padding: 10px; border-radius: 15px; background-color: "#ffffff"; border:
 </head>
 <body bgcolor="#ffffff" style="font-family:Arial">
 
-<table><tr>,td>x</td></tr></table>
+<table><tr><td>x</td></tr></table>
 
 <!-- Import answers.php -->
 <?php
