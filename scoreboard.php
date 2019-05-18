@@ -236,6 +236,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
        		$cclean = str_replace($remove, "", $curr_chal);
     		if ($verbose>1) { print "<p>Solved challenge: $cclean  <p>"; }
     	}
+    }
     
 	# ROW TOO LONG
    	if (($chal_count+1) % $max_row_length == 0) { 
@@ -254,9 +255,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     else {		# Add non-break challenge numbers to list
 	    $chal_list .= "$cell_prefix$cclean$cell_suffix";
     	if ($verbose>1) { print "<p>Adding to chal_list: $cclean  <p>"; }
-    	}
-    }
-    
+    	}    
 
     $chal_count += 1;
   }
