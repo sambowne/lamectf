@@ -93,8 +93,8 @@ if (! isset($description) ) {
 	exit;
 }
 
-$remove = '_';					    # Challenge ID delimiter
-$break_mark = "BREAK";		# In poss_chals;
+$remove = '_';				# Challenge ID delimiter
+$break_mark = "BREAK";		# In answers.php;
 $max_row_length = 20;		# includes break marks
 
 
