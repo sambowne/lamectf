@@ -216,7 +216,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     
     if (substr(strtolower($curr_chal),0,5) == $label_mark) {
     	$cell_prefix = $label_prefix;
-    	$cclean = substr($curr_chal,5)
+    	$cclean = substr($curr_chal,5);
     	$cell_suffix = $label_suffix;
     } 
     else {   	
