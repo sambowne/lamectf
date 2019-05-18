@@ -26,10 +26,10 @@ You need Apache and PHP.
 <pL>
 On Ubuntu 18.04, these commands work:
 
-<blockquote><b><nig><code><pre>
+<code><pre>
 sudo apt update
 sudo apt install apache2 php libapache2-mod-php -y
-</pre></code></big></b></blockquote>
+</pre></code>
 
 <h2>Testing Apache</h2>
 
@@ -43,9 +43,9 @@ as shown below.
 
 Execute this comman to make a simple PHP
 test file:
-<blockquote><b><nig><code><pre>
+<code><pre>
 echo "&lt;?php phpinfo() ?&gt;" | sudo tee /var/www/html/test.php
-</pre></code></big></b></blockquote>
+</pre></code>
 
 Open your server's IP address followed by "<b>/test.php</b>"
 in a Web browser.
@@ -57,16 +57,16 @@ as shown below.
 
 
 
-<h2>Installing the CTF Engine</h2>
+<h2>Task 2: Installing the CTF Engine</h2>
 
 In a Terminal, execute these commands:
 
-<code>
+<code><pre>
 sudo apt install git -y
 cd /var/www/html
 sudo git clone https://github.com/sambowne/lamectf.git
 sudo bash lamectf/setup.sh
-</code>
+</pre></code>
 
 
 Open your server's IP address 
