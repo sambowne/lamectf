@@ -2,13 +2,14 @@
 <head>
 <title>Demo CTF</title>
 <style>
-table { padding: 10px; border-radius: 15px; background-color: "#ffffff"; border: 10px solid blue; }
+table { padding: 10px; border-radius: 15px; background-color: "#ffffff"; border: 10px solid "#0066ff"; }
 </style>
 
 </head>
 <body bgcolor="#ffffff" style="font-family:Arial">
 
 
+<!-- Import answers.php -->
 <?php
 
 include 'answers.php';
@@ -22,70 +23,54 @@ if (! isset($description) ) {
 	print '<h3>Error: description not set in answers.php</h3>';
 	exit;
 }
-
-
-
-# $verbose = 1;
-
-$header  = $description;
-
-$header .= "<h3 align='center'><a href='scoreboard.php'>Scoreboard</a></h3>";
-
-# $header .= "<table style='border: $border_width solid $border_color; ";
-# $header .= "border-radius: 15px; ' ";
-# $header .= "cellpadding=0 cellspacing=0 align='center'> ";
-
-print $header;
-
-$border_width = "5";
-$border_color = "blue";
-
-
-print "<blockquote>";
-print "<table><tr><td align='center'>";
-print "<big><b>Enter flags below</b></big><p>";
-
-print "<form action='grade.php' method='post'>";
-
-print "<table cellpadding=5>";
-
-print "<tr><td><big><b>Challenge:</b></big></td>";
-print "  <td>";
-print "   <select name='chalnum'>";
-
-for( $j=0; $j<$nposs_chals; $j++ ) {
-  $curr_chal = $poss_chals[$j];
-  print "<option value='$curr_chal'>$curr_chal</option>";
-}
-
-print "</select> ";
-print "</td></tr>";
-
-
-
-
-print "<tr><td><big><b>Name:</b></big></td>";
-print "  <td><textarea name='name' rows='1' cols='25'></textarea></td></tr>";
-print "<tr><td><big><b>Flag:</b></big></td>";
-print "  <td><textarea name='answer' rows='1' cols='25'></textarea>  ";
-print "  </td></tr>";
-print "<tr><td colspan=2 align='center'><big><b>";
-print "<input type='submit' name='canvas' value='Submit'>";
-print "</td></tr>";
-print "</table>";
-
-print "</form>";
-
-print "</td></tr></table>";
-
-print "</blockquote>";
-
-
 ?>
 
 
+
+<!-- Print Header -->
+<?php
+$header  = $description;
+$header .= "<h3 align='center'><a href='scoreboard.php'>Scoreboard</a></h3>";
+print $header;
+?>
+
+
+<!-- Flag Submission Form -->
+
+<form action='grade.php' method='post'>
 <blockquote>
-<table cellpadding=10 border=5><tr><td>
+
+<table><tr><td><h3 align='center'>Enter flags below</h3></td></tr></table>
+
+<tr><td><big><b>Challenge:</b></big></td>
+  <td>
+   <select name='chalnum'>
+   <?php 
+   for( $j=0; $j<$nposs_chals; $j++ ) {
+     $curr_chal = $poss_chals[$j];
+     print "<option value='$curr_chal'>$curr_chal</option>";
+   } ?>
+</select> 
+</td></tr>
+
+<tr><td><big><b>Name:</b></big></td>
+  <td><textarea name='name' rows='1' cols='25'></textarea></td></tr>
+<tr><td><big><b>Flag:</b></big></td>
+  <td><textarea name='answer' rows='1' cols='25'></textarea>  
+  </td></tr>
+<tr><td colspan=2 align='center'><big><b>
+<input type='submit' name='canvas' value='Submit'>
+</td></tr>
+</table>
+
+</blockquote>
+</form>
+
+
+<p>
+
+<blockquote>
+<table><tr><td>
 <h2>Challenges</h2>
 
 <b><big>1. What color is the sky?</big></b>
