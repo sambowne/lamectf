@@ -26,10 +26,10 @@ You need Apache and PHP.
 <pL>
 On Ubuntu 18.04, these commands work:
 
-<code><pre>
-sudo apt update
+<code>
+sudo apt update<br>
 sudo apt install apache2 php libapache2-mod-php -y
-</pre></code>
+</code>
 
 <h2>Testing Apache</h2>
 
@@ -43,9 +43,9 @@ as shown below.
 
 Execute this comman to make a simple PHP
 test file:
-<code><pre>
+<code>
 echo "&lt;?php phpinfo() ?&gt;" | sudo tee /var/www/html/test.php
-</pre></code>
+</code>
 
 Open your server's IP address followed by "<b>/test.php</b>"
 in a Web browser.
@@ -61,12 +61,12 @@ as shown below.
 
 In a Terminal, execute these commands:
 
-<code><pre>
-sudo apt install git -y
-cd /var/www/html
-sudo git clone https://github.com/sambowne/lamectf.git
+<code>
+sudo apt install git -y<br>
+cd /var/www/html<br>
+sudo git clone https://github.com/sambowne/lamectf.git<br>
 sudo bash lamectf/setup.sh
-</pre></code>
+</code>
 
 
 Open your server's IP address 
