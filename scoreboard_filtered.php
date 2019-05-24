@@ -7,20 +7,10 @@ function textile_sanitize($string){
     return preg_replace($whitelist, '', $string);
 }
 
-if (isset($_GET["challenge1"])) { 
-	$challenge1 = textile_sanitize($_REQUEST['challenge1']); 
+if (isset($_GET["challenge"])) { 
+	$challenge = textile_sanitize($_REQUEST['challenge']); 
 	}
-else { $challenge1 = ""; }
-
-if (isset($_GET["challenge2"])) { 
-	$challenge = textile_sanitize($_REQUEST['challenge2']); 
-	}
-else { $challenge2 = ""; }
-
-if (isset($_GET["challenge3"])) { 
-	$challenge3 = textile_sanitize($_REQUEST['challenge3']); 
-	}
-else { $challenge1 = ""; }
+else { $challenge = ""; }
 
 if (isset($_GET["refresh"])) { 
 	$refresh = textile_sanitize($_REQUEST['refresh']); 
