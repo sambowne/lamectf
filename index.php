@@ -113,6 +113,41 @@ print $header;
 
 </blockquote>
 </form>
+<p>
+
+<p>
+
+<blockquote>
+<table><tr><td>
+<h2>Challenges</h2>
+
+<h3>Geography</h3>
+
+<b><big>1. What color is the sky?</big></b>
+<p>
+<b><big>2. When walking along a road, which directions can you go?  Choose from these options. (There are two possible correct answers.)
+<ul>
+<li>Forward
+<li>Back
+<li>Up
+<li>Down
+</ul>
+</big></b>
+<p>
+<b><big>3. Pick a number between 1 and 10.</big></b>
+
+
+
+<h3>Biology</h3>
+
+<b><big>4. How many eyes does a human have?</big></b>
+
+<p>
+
+</td></tr></table></blockquote>
+
+<p>
+
 
 <P ALIGN="CENTER">
 <b>
