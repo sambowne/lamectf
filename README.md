@@ -22,7 +22,7 @@ It is probably not very secure--if you hack it,
 please let me know!
 
 
-<h1>Task 1: Makng a Web Server</h1>
+<h1>Task 1: Making a Web Server</h1>
 
 <h2>Installing Apache and PHP</h2>
 
