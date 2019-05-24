@@ -4,7 +4,7 @@ $verbose = 0;
 
 # THIS SECTION CHANGES THE LOOK OF THE SCOREBOARD
 
-$version="2.02";
+$version="2.03";
 
 # $border_color = "#efdcff";
 # $border_color = "#D783FF";
@@ -19,7 +19,7 @@ $solved_color = "#ffffff";
 $solved_color_border = "SpringGreen";
 
 $unsolved_color = "#ffffff";
-$unsolved_color_border = "#666666";
+$unsolved_color_border = "#cccccc";
 # $unsolved_color = "#ff0000";
 
 $solved_font_color = "#000000";
@@ -33,6 +33,12 @@ if (isset($_GET["refresh"])) {
 	}
 else { $refresh = ""; }
 
+# Check summary parameter
+if (isset($_GET["summary"])) { 
+	$summary = 1; 
+	}
+else { $summary = 0; }
+
 
 $header = "<html><head><title>Scoreboard</title>";
 
@@ -40,15 +46,15 @@ $header .= "<style>";
 $header .= "th, td { border-bottom: 1px solid $bottom_border_color;";
 $header .= " margin: 0 10 0px; padding: 0 10 0px; vertical-align: middle; }";
 
-$header .= "td.solved { background-clip: padding-box; padding: 4px; ";
+$header .= "td.solved { background-clip: padding-box; padding: 6px; ";
 $header .= "border-radius: 13px; background-color: $solved_color; ";
-$header .= "border: 4px solid $solved_color_border; ";
+$header .= "border: 5px solid $solved_color_border; ";
 $header .= "text-align: center; font-size: 0.7em; ";
 $header .= "font-weight: 900; }";
 
-$header .= "td.unsolved { background-clip: padding-box; padding: 7px; ";
+$header .= "td.unsolved { background-clip: padding-box; padding: 6px; ";
 $header .= "border-radius: 13px; background-color: $unsolved_color;";
-$header .= "border: 1px solid $unsolved_color_border; ";
+$header .= "border: 5px solid $unsolved_color_border; ";
 $header .= "text-align: center; font-size: 0.7em; ";
 $header .= "font-weight: bold; }";
 
@@ -96,6 +102,17 @@ if (! isset($description) ) {
 	exit;
 }
 
+
+
+if (! isset($removes) ) {
+	$removes = "";
+	$nremoves = 0;
+} else {
+	$nremoves = count($removes);
+}
+
+if ($verbose > 1) print "<h2>REMOVES: $nremoves, $removes[0] </h2>";
+
 $remove = '_';				# Challenge ID delimiter
 $break_mark = "break";		# In answers.php;
 $label_mark = "label";		# In answers.php;
@@ -114,6 +131,10 @@ if ($verbose>1) {
 # Check showtest parameter
 if (isset($_GET["showtest"])) { $showtest = 1; }
 else { $showtest = 0; }
+
+# Check challenge parameter
+if (isset($_GET["challenge"])) { $challenge = $_GET["challenge"]; }
+else { $challenge = ""; }
 
 
 
@@ -224,6 +245,7 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     	$cell_prefix = $label_prefix;
     	$cclean = substr($curr_chal,6);
     	$cell_suffix = $label_suffix;
+    	$curr_label = $cclean;
     	if ($verbose>1) { print "<p>Label found: $cclean  <p>"; }
     } else {   	# Not a label
 		$pos = strpos($ci, $curr_chal);
@@ -231,12 +253,19 @@ for( $i = 0; $i<$numwinners; $i++ ) {
     		$cell_prefix = $unsolved_prefix;
        		$cell_suffix = $unsolved_suffix;
        		$cclean = str_replace($remove, "", $curr_chal);
+       		for ( $r = 0; $r <$nremoves; $r++) {
+        		$cclean = str_replace($removes[$r], "", $cclean);
+       		}
+
     		if ($verbose>1) { print "<p>Unsolved challenge: $cclean  <p>"; }
     	} 
   		else { 										# SOLVED
     		$cell_prefix = $solved_prefix;
     		$cell_suffix = $solved_suffix;
        		$cclean = str_replace($remove, "", $curr_chal);
+       		for ( $r = 0; $r <$nremoves; $r++) {
+        		$cclean = str_replace($removes[$r], "", $cclean);
+       		}
     		if ($verbose>1) { print "<p>Solved challenge: $cclean  <p>"; }
     	}
     }
@@ -251,14 +280,26 @@ for( $i = 0; $i<$numwinners; $i++ ) {
 
 	# BREAK MARK FOUND
     if (strtolower($curr_chal) == $break_mark) { 		# Break mark
+
+ 	  	 if ($challenge == "") {
     	$chal_list .= "</tr><tr>"; 
+  	 	 } 
+  	 	 
     	$chal_count = -1;
     	if ($verbose>1) { print "<p>Break mark found  <p>"; }
     	}
     else {		# Add non-break challenge numbers to list
-	    $chal_list .= "$cell_prefix$cclean$cell_suffix";
-    	if ($verbose>1) { print "<p>Adding to chal_list: $cclean  <p>"; }
-    	}    
+ 
+ 	  	 if ($challenge == "") {
+ 		    $chal_list .= "$cell_prefix$cclean$cell_suffix";
+  	 	 } else {
+  	 	 	# print "<h2>$challenge $curr_label</h2>";
+  	 	 	if ($challenge == $curr_label) {
+ 		    $chal_list .= "$cell_prefix$cclean$cell_suffix";
+  	 	 	}
+ 	  	 }
+    	 if ($verbose>1) { print "<p>Adding to chal_list: $cclean  <p>"; }
+    }    
 
     $chal_count += 1;
   }
@@ -286,7 +327,12 @@ for( $i = 0; $i<$numwinners; $i++ ) {
   $sort = (string) ($scores[$i] + 10000);
   $n = "<td align='center'><b><big>&nbsp;" . $winners[$i] . "&nbsp;</big></b></td>";
   $s = "<td align='center'><b>&nbsp;&nbsp;&nbsp;" . (string) $scores[$i] . "&nbsp;&nbsp;&nbsp;</b></td>";
-  $c =  "<td><table cellspacing=5 border=0><tr>$chal_list</tr></table></td>";
+  if ($summary ==0) {
+  	$c =  "<td><table cellspacing=5 border=0><tr>$chal_list</tr></table></td>";
+  } else {
+  	$c =  "";
+  }
+  
   array_push($outlines, ($sort . $n . $s . $c));
 }
 
@@ -355,5 +401,6 @@ print "</body></html>\n";
 # v 2.00 moved formatting to strings at top, added rank #
 # v 2.01 reads xfile and logfile from answers.php
 # v 2.02 reads description from answers.php
+# v 2.03 reads a list of removes from answwers.php and summary
 
 ?>
