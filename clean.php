@@ -34,7 +34,7 @@ if ($rightpass != $password ) {
 
 
 
-$version = "1.00";
+$version = "1.01";
 
 
 
@@ -43,50 +43,54 @@ $version = "1.00";
 
 
 print "Reading $logfile<p>";
+$logpointer = fopen($logfile, "r+");
+if (flock($logpointer, LOCK_EX)){
+  // Open the file to get existing content
+  $current = file_get_contents($logfile);
+  if ($verbose > 0) print "<pre>$current</pre>";
+  $array = str_getcsv ($current);
 
-// Open the file to get existing content
-$current = file_get_contents($logfile);
-if ($verbose > 0) print "<pre>$current</pre>";
-$array = str_getcsv ($current);
-  
-$csv = array_map('str_getcsv', file($logfile));
-$numlines = count($csv);
-if ($verbose > 1) print "<p>CSV contains $numlines lines.<p>\n";
-  
-if ($verbose > 1) print "<h2>CSV:</h2><pre>";
-if ($verbose > 1) print_r($csv);
-if ($verbose > 1) print "</pre>\n";
+  $csv = array_map('str_getcsv', file($logfile));
+  $numlines = count($csv);
+  if ($verbose > 1) print "<p>CSV contains $numlines lines.<p>\n";
 
-print "Found $numlines lines<p>";
+  if ($verbose > 1) print "<h2>CSV:</h2><pre>";
+  if ($verbose > 1) print_r($csv);
+  if ($verbose > 1) print "</pre>\n";
+
+  print "Found $numlines lines<p>";
 
 
-$changes = 0;
-$newlog = "";
-for( $i = 0; $i<$numlines; $i++ ) { 
-  if( $csv[$i][0] == $oldname )  {
-  	print "Line $i contains $oldname; changing to $newname<br>";
-  	$csv[$i][0] = $newname;
-  	$changes += 1;
+  $changes = 0;
+  $newlog = "";
+  for( $i = 0; $i<$numlines; $i++ ) {
+    if( $csv[$i][0] == $oldname )  {
+    	print "Line $i contains $oldname; changing to $newname<br>";
+    	$csv[$i][0] = $newname;
+    	$changes += 1;
+    }
+    if( $csv[$i][0] != "" )  {
+    $newlog .= $csv[$i][0] . "," . $csv[$i][1] . "," . $csv[$i][2] . "\n";
+    }
   }
-  if( $csv[$i][0] != "" )  {
-  $newlog .= $csv[$i][0] . "," . $csv[$i][1] . "," . $csv[$i][2] . "\n";
+
+  print "Found $changes lines with $oldname<p>";
+
+  if ($changes > $maxchanges) {
+  	print "Too many changes! $changes <p>";
+  	exit;
   }
+
+  print "Updating $logfile<p>";
+
+  // Write the contents back to the file
+  file_put_contents($logfile, $newlog);
+  fclose($logpointer) or die;
 }
-
-print "Found $changes lines with $oldname<p>";
-
-if ($changes > $maxchanges) {
-	print "Too many changes! $changes <p>";
-	exit;
+else{
+  print" Update failed; could not obtain filelock.";
 }
-
-print "Updating $logfile<p>";
-
-// Write the contents back to the file
-file_put_contents($logfile, $newlog);
-# file_put_contents("foo", $newlog);
-
-
+//v 1.01 lock file while working with it to prevent race condition
 
 echo "<p><small>Version: $version</small></p>";
 ?>
